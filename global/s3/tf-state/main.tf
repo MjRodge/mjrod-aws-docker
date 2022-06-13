@@ -8,4 +8,11 @@ terraform {
 }
 provider "aws" {
   region = "us-east-2"
+  default_tags {
+    tags = {
+      project = "mjrod-aws-docker"
+      owner = "mjrod"
+      env = "production"
+    }
+  }
 }

@@ -1,6 +1,9 @@
 # Configure an S3 bucket resource to hold application state files
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "<ENTER-A-GLOBALLY-UNIQUE-BUCKET-NAME-HERE>"  
+  bucket = "mjrod-aws-docker-terraform-state-bucket"
+  tags = {
+    Name = "mjrod-aws-docker-terraform-state-bucket"
+  }
 }
 
 # Add bucket versioning for state rollback
