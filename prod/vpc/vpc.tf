@@ -6,3 +6,12 @@ resource "aws_vpc" "vpc" {
     Name = "mjrod-aws-docker-vpc"
   }
 }
+
+resource "aws_subnet" "public" {
+  vpc_id     = aws_vpc.vpc.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "mjrod-aws-docker-public-subnet"
+  }
+}
