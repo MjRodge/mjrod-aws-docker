@@ -7,6 +7,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 
+
 # Public subnet resource
 resource "aws_subnet" "public" {
   vpc_id     = aws_vpc.vpc.id
@@ -18,6 +19,7 @@ resource "aws_subnet" "public" {
   }
 }
 
+
 # Internet gateway
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
@@ -26,3 +28,6 @@ resource "aws_internet_gateway" "igw" {
     "Name" = "mjrod-aws-docker-igw"
   }
 }
+
+
+# Elastic IP
