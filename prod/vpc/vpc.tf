@@ -31,3 +31,11 @@ resource "aws_internet_gateway" "igw" {
 
 
 # Elastic IP
+resource "aws_eip" "public_entry_ip" {
+  associate_with_private_ip = "10.0.1.5"
+  instance = data.terraform_remote_state.docker_host_id.outputs.docker_host_id
+
+  tags = {
+    "Name" = "mjrod_aws_docker_eip"
+  }
+}
