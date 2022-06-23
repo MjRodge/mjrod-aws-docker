@@ -8,7 +8,7 @@ output "eip_public_ip_address" {
   description = "elastic ip public address"
 }
 
-output "public_security_group" {
+output "public_security_group_id" {
   value = aws_security_group.public_subnet_security_group.id
   description = "public security group id"
 }
