@@ -5,6 +5,7 @@ resource "aws_instance" "docker_host" {
   subnet_id = data.terraform_remote_state.prod_vpc.outputs.public_subnet_id
   private_ip = "10.0.1.5"
   associate_public_ip_address = true
+  vpc_security_group_ids = [data.terraform_remote_state.prod_vpc.outputs.public_security_group_id]
 
   tags = {
     Name = "mjrod-aws-docker-host"
