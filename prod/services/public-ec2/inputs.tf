@@ -1,4 +1,4 @@
-data "terraform_remote_state" "public_subnet" {
+data "terraform_remote_state" "prod_vpc" {
   backend = "s3"  
   
   config = {
