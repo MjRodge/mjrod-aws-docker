@@ -6,3 +6,6 @@ terraform.tfstate.backup
 
 
 *.pem
+
+
+.DS_Store
