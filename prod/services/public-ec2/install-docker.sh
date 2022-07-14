@@ -1,26 +1,14 @@
 #!/bin/bash
 
 # upgrade host
-sudo dnf upgrade -y
+sudo yum update -y
 
-# install yum-utils
-sudo dnf install -y yum-utils
-
-# add docker repo
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
-# remove conflicting packages
-sudo dnf remove -y buildah podman
-
-# install docker packages
-sudo dnf install -y docker-ce docker-ce-cli containerd.io
+# install docker from amazon-linux-extras
+sudo amazon-linux-extras install docker -y
 
 # enable services in systemd
-sudo systemctl start docker && sudo systemctl enable docker
-sudo systemctl enable containerd
+sudo service docker start && sudo systemctl enable docker
 
 # post docker install steps
 # manage docker as non-root user
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
+sudo usermod -a -G docker ec2-user
