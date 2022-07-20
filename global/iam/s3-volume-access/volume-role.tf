@@ -1,3 +1,8 @@
+resource "aws_iam_instance_profile" "ec2_s3_volume_profile" {
+  name = "ec2_s3_docker_volume_role_profile"
+  role = aws_iam_role.ec2_s3_docker_volume_role.name
+}
+
 resource "aws_iam_role" "ec2_s3_docker_volume_role" {
   name = "ec2_s3_docker_volume_role"
   assume_role_policy = <<EOF
