@@ -8,6 +8,7 @@ resource "aws_instance" "docker_host" {
   vpc_security_group_ids = [data.terraform_remote_state.prod_vpc.outputs.public_security_group_id]
   key_name = aws_key_pair.public_ssh_key_pair.id
   user_data = "${file("install-docker.sh")}"
+  iam_instance_profile = data.terraform_remote_state.s3_volume_access.outputs.docker_volume_instance_profile
 
   tags = {
     Name = "mjrod-aws-docker-host"
